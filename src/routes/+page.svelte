@@ -1,12 +1,28 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
+
+	const sayHelloGrpc = () => {
+		fetch('http://localhost:5173/')
+			.then((response) => {
+				console.log('Response:', response);
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
 </script>
 
 <div class="flex h-screen w-screen flex-col bg-gradient-to-tl from-gray-900 to-gray-800">
 	<div class="mx-auto flex w-full flex-col items-center gap-8 md:w-[600px]">
 		<div
-			class="border-md absolute inset-0 m-auto h-fit w-fit rounded-xl bg-gradient-to-tl from-gray-200 to-gray-500 px-8 py-24 shadow-lg shadow-gray-100"
+			class="border-md absolute inset-0 m-auto flex h-fit w-fit flex-col gap-4 rounded-xl bg-gradient-to-tl from-gray-200 to-gray-500 px-8 py-24 shadow-lg shadow-gray-100"
 		>
+			<button
+				on:click={sayHelloGrpc}
+				class="flex w-full items-center gap-2 bg-red-600 p-2 text-white shadow-lg shadow-red-700"
+			>
+				Test
+			</button>
 			<a
 				class="flex w-fit items-center gap-2 bg-green-600 p-2 text-white shadow-lg shadow-green-700"
 				href="http://localhost:8000/auth/google"

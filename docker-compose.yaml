@@ -1,0 +1,7 @@
+services:
+  amazonka-express-ft:
+    build: .
+    ports:
+      - '5173:3000'
+    env_file:
+      - .env
