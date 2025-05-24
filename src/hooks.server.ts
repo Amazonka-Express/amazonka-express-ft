@@ -12,7 +12,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 			});
 		}
 	} else {
-		if (accessToken) {
+		if (accessToken && !event.url.pathname.startsWith('/api')) {
 			return new Response('Redirecting to app...', {
 				status: 302,
 				headers: {

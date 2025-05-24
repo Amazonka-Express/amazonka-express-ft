@@ -1,3 +1,4 @@
+#!/bin/bash
 # must be run from the root of the repo,
 # to use install protoc: https://protobuf.dev/installation/
 

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
-
 	const sayHelloGrpc = () => {
 		fetch('http://localhost:5173/')
 			.then((response) => {
