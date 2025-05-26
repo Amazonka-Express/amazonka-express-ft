@@ -1,13 +1,14 @@
 import { json } from '@sveltejs/kit';
 import grpc from '@grpc/grpc-js';
 import { greet } from '$pb/greet';
+import { USER_SERVICE_URL } from '$env/static/private';
 
 export async function GET(event) {
 	const msg = event.url.searchParams.get('msg') || 'error';
 	const role = event.request.headers.get('Role') || 'error';
 	console.log('Role:', role);
 
-	const client = new greet.GreeterClient('localhost:5001', grpc.credentials.createInsecure());
+	const client = new greet.GreeterClient(USER_SERVICE_URL, grpc.credentials.createInsecure());
 	const req = new greet.HelloRequest({
 		name: msg
 	});
