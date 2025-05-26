@@ -21,7 +21,6 @@ export function GET({ url }) {
 			console.error(err);
 			return json({ error: 'Error occurred' });
 		}
-		console.log('Response from server:', res?.coordinates);
 		result = res?.coordinates;
 	});
 

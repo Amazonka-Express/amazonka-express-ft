@@ -1,5 +1,4 @@
 <script lang="ts">
-	// dynamicly get url
 	const baseUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:5173/';
 	const url = `${baseUrl}api/truck`;
 	console.log('fetch URL:', url);
