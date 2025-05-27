@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { env } from '$env/dynamic/public';
+	console.log('Public API Gateway URL:', env.PUBLIC_API_GATEWAY_URL);
 </script>
 
 <div class="flex h-screen w-screen flex-col bg-gradient-to-tl from-gray-900 to-gray-800">
