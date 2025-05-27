@@ -4,6 +4,9 @@ import { ACCESS_TOKEN } from '$src/lib/consts';
 
 export const load: PageServerLoad<{ msg: string }> = async ({ cookies }) => {
 	const accessToken = cookies.get(ACCESS_TOKEN);
+	console.log('PUBLIC:', env.PUBLIC_API_GATEWAY_URL);
+	console.log('PUBLIC:', `${env.PUBLIC_API_GATEWAY_URL}/api/api/hello?msg=siemanko`);
+
 	const res = await fetch(`${env.PUBLIC_API_GATEWAY_URL}/api/api/hello?msg=siemanko`, {
 		method: 'GET',
 		headers: {
