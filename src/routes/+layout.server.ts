@@ -9,10 +9,11 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 			user: null
 		};
 	}
-	const email = jwtDecode(accessToken).sub;
+	const decodeToken = jwtDecode(accessToken) as { email: string };
+	// console.log('Decoded token:', decodeToken);
 	return {
 		user: {
-			email
+			email: decodeToken.email || null
 		}
 	};
 };

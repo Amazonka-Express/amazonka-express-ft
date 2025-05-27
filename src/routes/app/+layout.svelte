@@ -19,7 +19,7 @@
 			<Link href="/order/load">load</Link>
 		{/if}
 		{#if user()?.email}
-			<div class="mr-4 ml-auto">
+			<div class="mr-4 ml-auto text-xs">
 				Hi, {user()?.email}
 			</div>
 		{/if}

@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { env } from '$env/dynamic/public';
+</script>
+
 <div class="flex h-screen w-screen flex-col bg-gradient-to-tl from-gray-900 to-gray-800">
 	<div class="mx-auto flex w-full flex-col items-center gap-8 md:w-[600px]">
 		<div
@@ -5,7 +9,7 @@
 		>
 			<a
 				class="flex w-fit items-center gap-2 bg-green-600 p-2 text-white shadow-lg shadow-green-700"
-				href="http://localhost:8000/auth/google"
+				href={`${env.PUBLIC_API_GATEWAY_URL}/auth/google`}
 				>Sign in with <svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="32"
