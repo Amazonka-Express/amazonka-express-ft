@@ -17,6 +17,7 @@
 			<Link href="/order/find">find</Link>
 			<Link href="/order/arrange">arrange</Link>
 			<Link href="/order/load">load</Link>
+			<Link href="/app/truck">route</Link>
 		{/if}
 		{#if user()?.email}
 			<div class="mr-4 ml-auto text-xs">
