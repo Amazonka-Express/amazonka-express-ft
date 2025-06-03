@@ -37,6 +37,10 @@ export const load: PageServerLoad<{
 	});
 	idx = (idx + 1) % routes.length;
 
+	console.log(
+		'fetch api:',
+		`${env.PUBLIC_API_GATEWAY_URL}/api/api/truck?${searchParams.toString()}`
+	);
 	const response = await fetch(
 		`${env.PUBLIC_API_GATEWAY_URL}/api/api/truck?${searchParams.toString()}`,
 		{
