@@ -10,7 +10,7 @@
 		>
 			<a
 				class="flex w-fit items-center gap-2 bg-green-600 p-2 text-white shadow-lg shadow-green-700"
-				href={`${env.PUBLIC_API_GATEWAY_URL}/auth/google`}
+				href={`${env.PUBLIC_API_GATEWAY_URL}/api/auth/google`}
 				>Sign in with <svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="32"
