@@ -5,7 +5,7 @@
 	import Link from '../../shared/Link.svelte';
 	import { getContext } from 'svelte';
 
-	const user = getContext('user') as () => User | undefined;
+	const user = getContext('user') as () => User;
 </script>
 
 <div class="flex h-screen w-screen flex-col bg-gradient-to-tl from-gray-900 to-gray-800">
@@ -14,10 +14,13 @@
 	>
 		{#if $page.route.id !== '/'}
 			<img src={arrow} alt="back arrow" class="relative z-10 h-5 self-center" />
-			<Link href="/order/find">find</Link>
-			<Link href="/order/arrange">arrange</Link>
-			<Link href="/order/load">load</Link>
-			<Link href="/app/truck">route</Link>
+			{#if user()?.role === 'Worker'}
+				<Link href="/order/find">find</Link>
+				<Link href="/order/arrange">arrange</Link>
+				<Link href="/order/load">load</Link>
+			{:else}
+				<Link href="/app/truck">route</Link>
+			{/if}
 		{/if}
 		{#if user()?.email}
 			<div class="mr-4 ml-auto text-xs">

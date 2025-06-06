@@ -1,28 +1,26 @@
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	// for debugging purposes keep the following lines commented out:
-	//
-	// const accessToken = event.cookies.get('access_token');
-	// if (event.url.pathname.startsWith('/app')) {
-	// 	if (!accessToken) {
-	// 		return new Response('Redirecting to login...', {
-	// 			status: 302,
-	// 			headers: {
-	// 				Location: '/'
-	// 			}
-	// 		});
-	// 	}
-	// } else {
-	// 	if (accessToken && !event.url.pathname.startsWith('/api')) {
-	// 		return new Response('Redirecting to app...', {
-	// 			status: 302,
-	// 			headers: {
-	// 				Location: '/app'
-	// 			}
-	// 		});
-	// 	}
-	// }
+	const accessToken = event.cookies.get('access_token');
+	if (event.url.pathname.startsWith('/app')) {
+		if (!accessToken) {
+			return new Response('Redirecting to login...', {
+				status: 302,
+				headers: {
+					Location: '/'
+				}
+			});
+		}
+	} else {
+		if (accessToken && !event.url.pathname.startsWith('/api')) {
+			return new Response('Redirecting to app...', {
+				status: 302,
+				headers: {
+					Location: '/app'
+				}
+			});
+		}
+	}
 
 	const response = await resolve(event);
 	return response;
